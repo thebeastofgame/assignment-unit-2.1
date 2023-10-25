@@ -144,9 +144,9 @@ describe('Automated tests', function () {
             expect(petStatus).to.be.a('string');
             if (pets === allowedPets) {
                 expect(petStatus.toLowerCase().includes('i have enough pets'), 'Expected "I have enough pets"').to.equal(true);
-            } else if (pets > allowedPets) {
-                expect(petStatus.toLowerCase().includes('i can have more pets'), 'Expected "I can have more pets"').to.equal(true);
             } else if (pets < allowedPets) {
+                expect(petStatus.toLowerCase().includes('i can have more pets'), 'Expected "I can have more pets"').to.equal(true);
+            } else if (pets > allowedPets) {
                 expect(petStatus.toLowerCase().includes('i have too many pets'), 'Expected "Oh no, I have too many pets!"').to.equal(true);
             }
         });
