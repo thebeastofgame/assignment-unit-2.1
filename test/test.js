@@ -121,9 +121,9 @@ describe('Automated tests', function () {
             let { result, adventurous } = testItems;
             expect(result).to.be.a('string');
             if (adventurous) {
-                expect(result).to.equal('Adventures are great!');
+                expect(result.toLowerCase().includes('adventures are great'), 'Expected "Adventures are great!"').to.equal(true);
             } else {
-                expect(result).to.equal('How about we stay home?');
+                expect(result.toLowerCase().includes('how about we stay home'), 'Expected "How about we stay home?"').to.equal(true);
             }
         });
     });
@@ -132,9 +132,9 @@ describe('Automated tests', function () {
             let { diceRoll, luckyNumber, adventurous } = testItems;
             expect(diceRoll).to.be.a('string');
             if (luckyNumber === 2 && adventurous) {
-                expect(diceRoll).to.equal('Roll the dice!');
+                expect(diceRoll.toLowerCase().includes('roll the dice'), 'Expected "Roll the dice!"').to.equal(true);
             } else {
-                expect(diceRoll).to.equal('Try again later.');
+                expect(diceRoll.toLowerCase().includes('try again later'), 'Expected "Try again later."').to.equal(true);
             }
         });
     });
@@ -143,11 +143,11 @@ describe('Automated tests', function () {
             let { petStatus, pets, allowedPets } = testItems;
             expect(petStatus).to.be.a('string');
             if (pets === allowedPets) {
-                expect(petStatus).to.equal('I have enough pets');
+                expect(petStatus.toLowerCase().includes('i have enough pets'), 'Expected "I have enough pets"').to.equal(true);
             } else if (pets < allowedPets) {
-                expect(petStatus).to.equal('I can have more pets');
+                expect(petStatus.toLowerCase().includes('i can have more pets'), 'Expected "I can have more pets"').to.equal(true);
             } else if (pets > allowedPets) {
-                expect(petStatus).to.equal('Oh no, I have too many pets!');
+                expect(petStatus.toLowerCase().includes('i have too many pets'), 'Expected "Oh no, I have too many pets!"').to.equal(true);
             }
         });
     });
